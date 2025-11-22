@@ -1,0 +1,47 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  padding: 40px;
+}
+
+label {
+  font-weight: bold;
+  display: inline-block;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+input[type="number"] {
+  padding: 8px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#grade {
+  font-size: 20px;
+  font-weight: bold;
+  color: green;
+  margin-top: 10px;
+}
+
+p {
+  margin-top: 20px;
+  font-size: 18px;
+}
