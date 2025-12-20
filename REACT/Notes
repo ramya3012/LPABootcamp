@@ -1,0 +1,70 @@
+1. @keyframes logo-spin {
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+a:nth-of-type(2) .logo {
+animation: logo-spin infinite 20s linear;
+}
+}
+
+This CSS creates a rotation animation for a logo:
+
+@keyframes logo-spin: Defines an animation called "logo-spin" that rotates an element from 0° to 360° (one complete rotation).
+
+@media (prefers-reduced-motion: no-preference): A media query that checks if the user hasn't requested reduced motion in their system accessibility settings. This respects users who may get dizzy or uncomfortable with animations.
+
+a:nth-of-type(2) .logo: Targets the .logo element inside the second <a> (anchor/link) element on the page. In your App.jsx, that's the React logo (the Vite logo is in the first link).
+
+animation: logo-spin infinite 20s linear: Applies the rotation animation with:
+
+infinite - never stops rotating
+20s - takes 20 seconds to complete one full rotation
+linear - constant speed throughout the rotation
+So currently, the React logo rotates, not the Vite logo. To make the Vite logo rotate instead, change a:nth-of-type(2) to a:nth-of-type(1).
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+2.will-change: filter;
+transition: filter 300ms; 
+
+will-change: filter: Tells the browser to optimize for changes to the filter property. This is a performance hint that helps the browser prepare for upcoming animations/transitions, making them smoother by allocating resources in advance.
+
+transition: filter 300ms: Creates a smooth transition effect when the filter property changes, taking 300 milliseconds (0.3 seconds).
+
+With transition: The glow smoothly fades in over 300ms when you hover, and fades out when you leave. It's a gradual, smooth effect.
+
+Without transition: The glow appears instantly when you hover and disappears instantly when you leave. No smooth animation - just an abrupt on/off switch.
+
+will-change is just a performance optimization hint for the browser. The effect works fine without it, but might be slightly less smooth on lower-end devices.
+
+Try removing those lines and hovering over the logos - you'll see the drop-shadow still works, just without the smooth fade animation!
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+3. index.css as a global stylesheet with sensible defaults for common HTML elements (links, buttons, headings, etc.). Even though you're not using text links right now, the styles are pre-configured so when you do add them, they'll look good without extra work.
+
+
+index.css = Global styles for the entire app
+
+Imported in main.jsx (the entry point)
+Applies to all components in your app
+Contains base styles for common HTML elements (h1, button, a, body, etc.)
+Sets up global things like fonts, colors, dark/light mode
+App.css = Component-specific styles
+
+Imported in App.jsx
+Contains styles specific to the App component only
+Uses classes like .logo, .card, .read-the-docs
+More specific/custom styles
+Why this separation?
+
+The h1 and button styles in index.css are base/default styles that apply everywhere
+If you create other components with h1 or buttons, they'll automatically have these base styles
+App.css adds additional custom styling on top of the base styles using classes
+This follows React's pattern: global defaults in index.css, component-specific customization in component CSS files
+So index.css provides the foundation, and App.css adds specific styling for the App component's unique needs!
+
+
+
