@@ -68,3 +68,33 @@ So index.css provides the foundation, and App.css adds specific styling for the 
 
 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+With return keyword:
+
+products.map((item) => {    // ← These {} = function body
+  return {                  // ← These {} = object
+    name: item.name,
+    price: item.price * 0.5,
+  };
+
+
+2 sets of {}: One for function body, one for the object
+
+Without return keyword:
+
+products.map((item) => ({   // ← These () wrap the object
+  name: item.name,          // ← These {} = object
+  price: item.price * 0.5,
+}));
+
+1 set of {}: Only for the object. The () are not braces—they're parentheses that tell JavaScript "this is an expression to return, not a function body"
+
+Why the difference?
+
+=> { } means "function body starts here, use return to return something"
+=> ( ) means "return this expression directly, no function body"
+So yes, the return version has more braces because it needs both function body braces and object braces. The implicit return version only needs object braces wrapped in parentheses!
+});
+
+
+
