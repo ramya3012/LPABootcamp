@@ -11,8 +11,13 @@ import { Person } from "./Person";
 // }
 
 function App() {
-  let isLoggedIn = true;
-  let isAdmin = false;
+  const data = [
+    { id: crypto.randomUUID(), firstName: "Rajdeep", job: "Developer" },
+    { id: crypto.randomUUID(), firstName: "Sumit", job: "Datascientist" },
+    { id: crypto.randomUUID(), firstName: "Amit", job: "Marketing Analyst" },
+  ];
+  // let isLoggedIn = true;
+  // let isAdmin = false;
   // const [name, setName] = useState("Ramya");
 
   // const [item, setItem] = useState("iphone");
@@ -77,10 +82,17 @@ function App() {
       </div> */}
 
       {/* <h1>{isLoggedIn ? "User is logged in " : "User is not logged in "}</h1> */}
-      <h1>
-        {/* {isLoggedIn && isAdmin ? "User is logged in" : "User is not logged in "} */}
-        {isLoggedIn || isAdmin ? "User is logged in" : "User is not logged in "}
-      </h1>
+      {/* <h1> */}
+      {/* {isLoggedIn && isAdmin ? "User is logged in" : "User is not logged in "} */}
+      {/* {isLoggedIn || isAdmin ? "User is logged in" : "User is not logged in "} */}
+      {/* </h1> */}
+      <ul>
+        {data.map((item) => (
+          <li key={item.id} id={item.id}>
+            Name : {item.firstName} | Job : {item.job}
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
