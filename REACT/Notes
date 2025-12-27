@@ -98,3 +98,17 @@ So yes, the return version has more braces because it needs both function body b
 
 
 
+
+ useCallback - Still used to prevent unnecessary re-creation of the function when used in search/pagination handlers
+✅ Empty dependency array - useEffect only runs once on mount (what we actually want)
+✅ eslint-disable comment - Tells ESLint we intentionally want it to run once
+
+When to use useCallback:
+
+✅ Functions passed as props to child components
+✅ Functions used in other hooks' dependencies (if needed)
+✅ Functions called from event handlers that need stable references
+❌ Simple functions th
+
+
+
